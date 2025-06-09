@@ -1,3 +1,6 @@
+// Estate Agent Market Insights App (React-only frontend with Zapier integration)
+
+// --- App.jsx ---
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -8,46 +11,33 @@ function App() {
     e.preventDefault();
     setStatus('Sending...');
     try {
-      // Simulated property data for report body
+      // Flattened property data for Zapier
       const reportData = {
         recipient: 'shezaadhusain@gmail.com',
         subject: 'UK Property Market Report',
-        report: {
-          interestRates: {
-            current: '5-year fixed: 4.2%',
-            trend: 'Rates down 0.25% this month',
-            implication: 'Likely to encourage buyers'
-          },
-          housingStock: {
-            london: {
-              listings: 12000,
-              averagePrice: '£550,000',
-              change: 'Stock up 5% this quarter'
-            },
-            manchester: {
-              listings: 8000,
-              averagePrice: '£280,000',
-              change: 'Stock up 3% this quarter'
-            }
-          },
-          newDevelopments: [
-            {
-              location: 'Liverpool City Centre',
-              units: 150,
-              completion: 'Q4 2026',
-              impact: 'Likely to increase affordable housing options'
-            },
-            {
-              location: 'Birmingham Eastside',
-              units: 320,
-              completion: 'Q2 2025',
-              impact: 'May drive prices down slightly in the area'
-            }
-          ]
-        }
+        currentRate: '5-year fixed: 4.2%',
+        rateTrend: 'Rates down 0.25% this month',
+        implication: 'Likely to encourage buyers',
+        londonListings: 12000,
+        londonAvgPrice: '£550,000',
+        londonChange: 'Stock up 5% this quarter',
+        manchesterListings: 8000,
+        manchesterAvgPrice: '£280,000',
+        manchesterChange: 'Stock up 3% this quarter',
+        dev1Location: 'Liverpool City Centre',
+        dev1Units: 150,
+        dev1Completion: 'Q4 2026',
+        dev1Impact: 'Likely to increase affordable housing options',
+        dev2Location: 'Birmingham Eastside',
+        dev2Units: 320,
+        dev2Completion: 'Q2 2025',
+        dev2Impact: 'May drive prices down slightly in the area'
       };
 
-      const response = await axios.post('https://hooks.zapier.com/hooks/catch/23295493/uyt5ddk/', reportData);
+      const response = await axios.post(
+        'https://hooks.zapier.com/hooks/catch/16127357/3r1tw5p/',
+        reportData
+      );
       console.log('Server response:', response.data);
       setStatus('Report sent successfully!');
     } catch (error) {
