@@ -35,7 +35,7 @@ function App() {
       };
 
       const response = await axios.post(
-        'https://hooks.zapier.com/hooks/catch/16127357/3r1tw5p/',
+        'https://hooks.zapier.com/hooks/catch/23295493/uytfyor/',
         reportData
       );
       console.log('Server response:', response.data);
